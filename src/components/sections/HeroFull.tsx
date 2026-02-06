@@ -128,19 +128,6 @@ export function HeroFull() {
         </div>
       </div>
 
-      {/* Animated accent on right side */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="absolute right-10 top-1/2 -translate-y-1/2 hidden xl:block"
-      >
-        <div className="relative">
-          <div className="w-24 h-24 rounded-full border-2 border-gold-400/30 animate-ping" style={{ animationDuration: '3s' }} />
-          <div className="absolute inset-0 w-24 h-24 rounded-full border border-gold-400/50" />
-        </div>
-      </motion.div>
-
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream-50 to-transparent" />
     </section>

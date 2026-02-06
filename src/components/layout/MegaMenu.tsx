@@ -198,7 +198,9 @@ export function MegaMenu() {
             {/* Logo */}
             <Link
               href="/"
-              className="font-[family-name:var(--font-cormorant)] text-2xl font-bold transition-colors duration-500 text-navy-950 hover:text-gold-500"
+              className={`font-[family-name:var(--font-cormorant)] text-2xl font-bold transition-colors duration-500 ${
+                isScrolled ? "text-navy-950 hover:text-gold-500" : "text-white hover:text-gold-400"
+              }`}
             >
               ATX ABA
             </Link>
@@ -215,7 +217,12 @@ export function MegaMenu() {
                   <Link
                     href={item.href}
                     className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg
-                      ${pathname === item.href ? "text-gold-500" : "text-navy-800/70 hover:text-navy-950 hover:bg-navy-950/5"}`}
+                      ${pathname === item.href
+                        ? "text-gold-400"
+                        : isScrolled
+                          ? "text-navy-800/70 hover:text-navy-950 hover:bg-navy-950/5"
+                          : "text-white/80 hover:text-white hover:bg-white/10"
+                      }`}
                   >
                     {item.label}
                     {item.megaMenu && (
@@ -232,14 +239,18 @@ export function MegaMenu() {
             {/* Desktop CTA */}
             <div className="hidden lg:block">
               <Link href="/conference#register">
-                <Button size="sm">Register for Conference</Button>
+                <Button size="sm" className={!isScrolled ? "shadow-lg shadow-gold-500/30" : ""}>
+                  Register for Conference
+                </Button>
               </Link>
             </div>
 
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileOpen(true)}
-              className="lg:hidden p-2 transition-colors text-navy-800/70 hover:text-navy-950"
+              className={`lg:hidden p-2 transition-colors ${
+                isScrolled ? "text-navy-800/70 hover:text-navy-950" : "text-white/80 hover:text-white"
+              }`}
               aria-label="Open menu"
             >
               <Menu size={24} />
